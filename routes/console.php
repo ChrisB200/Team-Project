@@ -55,5 +55,10 @@ Artisan::command('project:setup', function () {
     Artisan::call('migrate', ['--force' => true]);
     $this->info(Artisan::output());
 
+    // symbolic link the storage directory
+    $this->info("\nLinking the storage directory");
+    Artisan::call("storage:link");
+    $this->info(Artisan::output());
+
     $this->info("\nSetup complete!");
 });
