@@ -1,6 +1,5 @@
 @extends('master')
 
 @section("content")
-<h1>Log in to Crown and Dial</h1>
+<h1>Sign up to Crown and Dial</h1>
 @stop
-
