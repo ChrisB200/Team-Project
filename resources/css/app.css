@@ -39,6 +39,18 @@ button {
   color: var(--accent);
 }
 
+button {
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  border: 1px solid var(--stroke);
+  background-color: var(--primary);
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
 input {
   height: fit-content;
   padding: 0.75rem 1rem;
@@ -128,4 +140,61 @@ footer>div>ul {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+.logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4rem;
+}
+
+.credential-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.credential-title {
+  text-align: center;
+}
+
+.credential-span {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.credential-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.credential-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.credential-bottom>p {
+  margin: 0;
+}
+
+.accent-button {
+  background-color: var(--accent);
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.bold {
+  font-weight: bold;
 }
