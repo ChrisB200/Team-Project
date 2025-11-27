@@ -2,6 +2,7 @@
 
 @section("content")
 <p>
-CONTACT US PAGE
+PRODUCT LISTING PAGE
 </p>
 @stop
+
