@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Watch Orders extends Model
+class Basket extends Model
 {
     //
 }
