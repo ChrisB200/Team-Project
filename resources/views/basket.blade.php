@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("content")
+@section("page")
 <p>
 BASKET PAGE
 </p>

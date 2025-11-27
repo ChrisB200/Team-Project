@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("content")
+@section("page")
 <p>
 CONTACT US PAGE
 </p>
