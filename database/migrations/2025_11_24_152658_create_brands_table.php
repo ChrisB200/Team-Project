@@ -14,12 +14,6 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->text("name");
-            $table->text("description");
-
-            // TODO: NEED TO DECIDE WHAT BRAND TYPES THERE ARE
-            // $table->enum();
-
-            $table->text("logo_path");
             $table->timestamps();
         });
     }

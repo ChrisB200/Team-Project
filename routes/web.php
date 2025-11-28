@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\WatchController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,14 +23,30 @@ Route::get('/basket', function () {
 });
 
 
-Route::get('/products', function () {
-    return view('products');
-});
+// route for watches
+Route::resource('watches', WatchController::class)->only([
+    'index',
+    'show'
+]);
 
+// route for brands (admin)
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::resource('brands', BrandController::class);
+    });
 
-Route::get('/product/listing', function () {
-    return view('product_listing');
-});
+// route for watches (admin)
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::resource('watches', WatchController::class)->except([
+            'index',
+            'show'
+        ]);
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Watch extends Model
 {
     protected $fillable = ["price", "name", "description", "size"];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }
