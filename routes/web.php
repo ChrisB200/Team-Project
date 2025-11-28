@@ -29,13 +29,6 @@ Route::resource('watches', WatchController::class)->only([
     'show'
 ]);
 
-// route for brands (admin)
-Route::middleware(['auth', 'admin'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-        Route::resource('brands', BrandController::class);
-    });
 
 // route for watches (admin)
 Route::middleware(['auth', 'admin'])

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer("brand_id")->unsigned();
             $table->integer("supplier_id")->unsigned();
+            $table->integer("category_id")->unsigned();
 
             // TODO: NEED TO FIND WATCH CATEGORIES $table->enum();
 
@@ -37,6 +38,14 @@ return new class extends Migration
                 ->on("suppliers")
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
+
+
+            $table
+                ->foreign("category_id")
+                ->references("id")
+                ->on("categories")
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
         });
     }
 

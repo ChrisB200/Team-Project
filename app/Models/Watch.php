@@ -12,4 +12,14 @@ class Watch extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
 }
