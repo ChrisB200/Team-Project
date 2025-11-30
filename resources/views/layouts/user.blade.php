@@ -25,6 +25,17 @@
         </a>
       </div>
     </nav>
+    <ul>
+      <li>
+        <a href="{{ route('watches.index') }}">WATCHES</a>
+      </li>
+      <li>
+        <a href="{{ route('about') }}">ABOUT</a>
+      </li>
+      <li>
+        <a href="{{ route('contact') }}">CONTACT US</a>
+      </li>
+    </ul>
   </header>
   <main>
     @yield('page')

@@ -7,7 +7,7 @@
 @section('page')
   <section class="hero">
     <h2 class="section-title">
-      OUR CATALOG
+      ABOUT US
     </h2>
     <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit
       urna. Pellentesque
