@@ -25,17 +25,6 @@
         </a>
       </div>
     </nav>
-    <ul>
-      <li>
-        <a href="/products">MENS</a>
-      </li>
-      <li>
-        <a href="/products">LADIES</a>
-      </li>
-      <li>
-        <a href="/products">BRANDS</a>
-      </li>
-    </ul>
   </header>
   <main>
     @yield('page')
