@@ -19,6 +19,14 @@
     <h2 class="section-title">
       {{ $categoryName }} WATCHES
     </h2>
+    <div>
+      <select name="filter">
+        <option>Filter</option>
+      </select>
+      <select name="sort">
+        <option>Sort</option>
+      </select>
+    </div>
     <div class="watches">
       @foreach ($watches as $watch)
         <a class="watch" href="{{ route('watches.show', compact('watch')) }}">
@@ -32,6 +40,21 @@
           </div>
         </a>
       @endforeach
+    </div>
+    <div class="pagination">
+      @if ($watches->previousPageUrl())
+        <a href="{{ $watches->previousPageUrl() }}" class="btn"><strong>Previous</strong></a>
+      @else
+        <span class="btn disabled">Previous</span>
+      @endif
+
+      <span>Page {{ $watches->currentPage() }} of {{ $watches->lastPage() }}</span>
+
+      @if ($watches->nextPageUrl())
+        <a href="{{ $watches->nextPageUrl() }}" class="btn"><strong>Next</strong></a>
+      @else
+        <span class="btn disabled">Next</span>
+      @endif
     </div>
   </section>
 @stop

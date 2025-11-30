@@ -33,7 +33,7 @@
         </div>
         <p><strong>Smart</strong><br />Watches</p>
       </a>
-      <a class="category" href="{{ route('watches.category', 'sport') }}">
+      <a class="category" href="{{ route('watches.category', 'sports') }}">
         <div class="category-image">
           <img src="{{ asset('images/sport.png') }}" />
         </div>
