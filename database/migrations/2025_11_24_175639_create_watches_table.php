@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text("name");
             $table->text("description");
             $table->integer("size");
+            $table->text("image_path");
             $table->timestamps();
 
             $table
