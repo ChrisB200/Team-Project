@@ -1,70 +1,60 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('content')
-    @if (session('status'))
-        <div>
-            {{ session('status') }}
-        </div>
-    @endif
+  @if (session('status'))
+    <div>
+      {{ session('status') }}
+    </div>
+  @endif
 
-    <a href="/" class="logo-container">
-        <img class="logo" src="{{asset(('logo.svg'))}}" alt="LOGO"/>
-    </a>
+  <a href="/" class="logo-container">
+    <img class="logo" src="{{ asset('logo.svg') }}" alt="LOGO" />
+  </a>
 
-    <form class="credential-form" method="POST" action="{{ route('login') }}">
-        @csrf
+  <form class="credential-form" method="POST" action="{{ route('login') }}">
+    @csrf
 
 
-        <h1 class="credential-title">Login to Crown & Dial</h1>
+    <h1 class="credential-title">Login to Crown & Dial</h1>
 
-        {{-- Email --}}
-        <div class="credential-row">
-            <label for="email">Email</label>
-            <input id="email"
-                   type="email"
-                   name="email"
-                   value="{{ old('email') }}"
-                   required
-                   autofocus
-            >
-            @error('email')
-                <div>{{ $message }}</div>
-            @enderror
-        </div>
+    {{-- Email --}}
+    <div class="credential-row">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+      @error('email')
+        <div>{{ $message }}</div>
+      @enderror
+    </div>
 
-        {{-- Password --}}
-        <div class="credential-row">
-            <label for="password">Password</label>
-            <input id="password"
-                   type="password"
-                   name="password"
-                   required
-            >
-            @error('password')
-                <div>{{ $message }}</div>
-            @enderror
-        </div>
+    {{-- Password --}}
+    <div class="credential-row">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" required>
+      @error('password')
+        <div>{{ $message }}</div>
+      @enderror
+    </div>
 
-        {{-- Remember Me --}}
-        <div>
-            <label>
-                <input type="checkbox" name="remember">
-                Remember me
-            </label>
-        </div>
+    {{-- Remember Me --}}
+    <div>
+      <label>
+        <input type="checkbox" name="remember">
+        Remember me
+      </label>
+    </div>
 
-        {{-- Forgot + Login --}}
-        <div class="credential-bottom">
-            <button class="accent-button" type="submit">
-                Log in
-            </button>
+    {{-- Forgot + Login --}}
+    <div class="credential-bottom">
+      <button class="accent-button" type="submit">
+        Log in
+      </button>
 
-            @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}">
-                Forgot your password?
-            </a>
-            @endif
-            <p>Don't have an account? <a class="bold" href="/register">Create One</a></p>
-        </div>
-    </form>
+      @if (Route::has('password.request'))
+        <a href="{{ route('password.request') }}">
+          Forgot your password?
+        </a>
+      @endif
+      <p>Don't have an account? <a class="bold" href="/register">Create One</a></p>
+    </div>
+  </form>
 @endsection

@@ -1,7 +1,7 @@
-@extends("layout")
+@extends('layouts.user')
 
-@section("page")
-<p>
-CONTACT US PAGE
-</p>
+@section('page')
+  <p>
+    CONTACT US PAGE
+  </p>
 @stop

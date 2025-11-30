@@ -1,9 +1,7 @@
-@extends("master")
+@extends('layouts.admin')
 
-@section("content")
-<p>
+@section('content')
+  <p>
     Supplier Index
-</p>
+  </p>
 @stop
-
-

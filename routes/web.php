@@ -19,9 +19,8 @@ Route::get('/about', function () {
 });
 
 Route::get('/basket', function () {
-    return view('basket');
+    return view("basket");
 });
-
 
 
 // admin routes

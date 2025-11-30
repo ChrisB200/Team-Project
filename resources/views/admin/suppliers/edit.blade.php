@@ -1,9 +1,7 @@
-@extends("layout")
+@extends('layouts.admin')
 
-@section("page")
-<p>
+@section('page')
+  <p>
     Supplier Edit
-</p>
+  </p>
 @stop
-
-
