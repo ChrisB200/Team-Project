@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('html-head')
+  @yield('head')
+@stop
+
 @section('content')
   <header>
     <nav>

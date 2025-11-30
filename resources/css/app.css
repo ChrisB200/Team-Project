@@ -7,6 +7,10 @@
   --border-radius: 4px;
 }
 
+* {
+  margin: 0;
+}
+
 html {
   font-family: "Ubuntu", sans-serif;
 }
@@ -27,7 +31,7 @@ li {
 }
 
 main {
-  padding: 6rem;
+  padding: 12rem 6rem;
 }
 
 p,
@@ -101,6 +105,10 @@ nav>.right {
   height: auto;
   aspect-ratio: 1;
   color: var(--accent);
+}
+
+header {
+  z-index: 100;
 }
 
 header>ul {
@@ -193,8 +201,14 @@ footer>div>ul {
   background-color: var(--accent);
   font-weight: bold;
   color: var(--primary);
+  padding: 1rem 2rem;
 }
 
 .bold {
   font-weight: bold;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
 }
