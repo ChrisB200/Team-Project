@@ -37,7 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Watch extends Model
 {
-    protected $fillable = ["brand_id", "supplier_id", "category_id", "price", "name", "description", "size", "image_path"];
+    protected $fillable = ["brand_id", "supplier_id", "category_id", "price", "name", "description", "image_path"];
 
     public function brand()
     {
@@ -52,5 +52,10 @@ class Watch extends Model
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
+    }
+
+    public function basket()
+    {
+        return $this->hasMany(BasketItem::class);
     }
 }

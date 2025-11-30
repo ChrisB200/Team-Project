@@ -22,7 +22,6 @@ return new class extends Migration
             $table->decimal("price");
             $table->text("name");
             $table->text("description");
-            $table->integer("size");
             $table->text("image_path");
             $table->timestamps();
 
