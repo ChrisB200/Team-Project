@@ -14,7 +14,8 @@ class WatchController extends Controller
     public function index()
     {
         $watches = Watch::latest()->paginate(12);
-        return view('watches.index', compact('watches'));
+        $categoryName = "ALL";
+        return view('watches.index', compact('watches', 'categoryName'));
     }
 
     /**
@@ -29,6 +30,7 @@ class WatchController extends Controller
     {
         $category = Category::where("name", $slug)->firstOrFail();
         $watches = Watch::where("category_id", $category->id)->paginate(12);
-        return view("watches.index", compact("watches", "category"));
+        $categoryName = strtoupper($category->name);
+        return view("watches.index", compact("watches", "categoryName"));
     }
 }
