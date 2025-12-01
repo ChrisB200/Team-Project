@@ -1,0 +1,21 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 700px;
+  text-align: left;
+  width: 100%;
+}
+
+.form-span {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

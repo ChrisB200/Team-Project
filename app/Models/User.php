@@ -82,4 +82,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Card::class);
     }
+
+    public function past_orders()
+    {
+        return $this->hasMany(WatchOrder::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

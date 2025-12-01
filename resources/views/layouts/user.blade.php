@@ -37,7 +37,7 @@
         <a href="{{ route('about') }}">ABOUT</a>
       </li>
       <li>
-        <a href="{{ route('contact') }}">CONTACT US</a>
+        <a href="{{ route('contact.create') }}">CONTACT US</a>
       </li>
     </ul>
   </header>
