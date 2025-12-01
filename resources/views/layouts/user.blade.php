@@ -17,19 +17,53 @@
         </div>
       </div>
       <div class="right">
-        <a href="/basket">
+        <a href="{{ route('basket.index') }}">
           <x-icon name="shopping-cart" class="icon" />
         </a>
         <a href="/profile">
           <x-icon name="user" class="icon" />
         </a>
-        <button id="theme-toggle" class="theme-toggle">
-          <x-icon name="moon" class="icon" id="moon-icon" />
-          <x-icon name="sun" class="icon hidden" id="sun-icon" />
-        </button>
+        <x-theme-toggle />
+      </div>
+      <x-icon name="menu" class="menu icon" id="menu-icon" />
+      <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-top">
+          <div class="mobile-logo-container">
+            <img class="logo" src="{{ asset('logo.svg') }}" alt="LOGO" />
+          </div>
+          <x-icon name="menu" class="menu icon mobile" id="close-menu-icon" />
+        </div>
+        <ul class="mobile-anchors">
+          <li>
+            <a href="{{ route('home') }}">HOME</a>
+          </li>
+          <li>
+            <a href="{{ route('watches.index') }}">WATCHES</a>
+          </li>
+          <li>
+            <a href="{{ route('about') }}">ABOUT</a>
+          </li>
+          <li>
+            <a href="{{ route('contact.create') }}">CONTACT US</a>
+          </li>
+          <li>
+            <a href="{{ route('basket.index') }}">BASKET</a>
+          </li>
+          <li>
+            <a href="profile">PROFILE</a>
+          </li>
+        </ul>
+        <div class="mobile-accessibility">
+          <x-theme-toggle />
+          <div class="font-sizes">
+            <button class="font-size-btn" data-size="14">A-</button>
+            <button class="font-size-btn" data-size="16">R</button>
+            <button class="font-size-btn" data-size="18">A+</button>
+          </div>
+        </div>
       </div>
     </nav>
-    <ul>
+    <ul class="underlinks">
       <li>
         <a href="{{ route('watches.index') }}">WATCHES</a>
       </li>
@@ -58,26 +92,18 @@
     </div>
   </footer>
   <script>
-    const html = document.documentElement;
-    const moonIcon = document.getElementById("moon-icon");
-    const sunIcon = document.getElementById("sun-icon");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeMenuIcon = document.getElementById("close-menu-icon");
 
-    // Load saved theme
-    if (localStorage.getItem("theme") === "dark") {
-      html.classList.add("dark");
-      moonIcon.classList.add("hidden");
-      sunIcon.classList.remove("hidden");
-    }
+    menuIcon.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+      document.querySelector("nav").classList.add("menu-open");
+    })
 
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-      const isDark = html.classList.toggle("dark");
-
-      // Toggle icons
-      moonIcon.classList.toggle("hidden", isDark);
-      sunIcon.classList.toggle("hidden", !isDark);
-
-      // Save preference
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
+    closeMenuIcon.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      document.querySelector("nav").classList.remove("menu-open");
+    })
   </script>
 @stop
