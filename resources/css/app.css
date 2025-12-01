@@ -139,6 +139,7 @@ a:hover {
 footer {
   display: flex;
   justify-content: center;
+  margin-bottom: 10rem;
 }
 
 footer>div {
