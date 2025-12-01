@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer("user_id")->unsigned();
+            $table->integer("shipping_address_id")->unsigned();
+            $table->integer("billing_address_id")->unsigned();
+            $table->integer("card_id")->unsigned();
             $table->enum("status", ["pending", "paid", "shipped", "delivered", "cancelled"]);
             $table->decimal("total");
             $table->timestamps();
@@ -22,6 +25,27 @@ return new class extends Migration
                 ->foreign("user_id")
                 ->references("id")
                 ->on("users")
+                ->cascadeOnUpdate()
+                ->noActionOnDelete();
+
+            $table
+                ->foreign("shipping_address_id")
+                ->references("id")
+                ->on("addresses")
+                ->cascadeOnUpdate()
+                ->noActionOnDelete();
+
+            $table
+                ->foreign("billing_address_id")
+                ->references("id")
+                ->on("addresses")
+                ->cascadeOnUpdate()
+                ->noActionOnDelete();
+
+            $table
+                ->foreign("card_id")
+                ->references("id")
+                ->on("cards")
                 ->cascadeOnUpdate()
                 ->noActionOnDelete();
         });

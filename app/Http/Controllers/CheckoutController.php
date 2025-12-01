@@ -6,6 +6,7 @@ use App\Models\BasketItem;
 use App\Models\Card;
 use App\Models\WatchOrder;
 use App\Models\Address;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -85,7 +86,6 @@ class CheckoutController extends Controller
             'number' => $request['card-number'],  // store hashed in real systems
             'expiry' => $request['card-expiry'],
             'cvv' => $request['card-cvv'],        // also hash or don't store
-            "address_id" => $billing->id,
         ]);
 
         // 5. Fetch all basket items
@@ -95,13 +95,22 @@ class CheckoutController extends Controller
             return redirect()->route('basket.index')->withErrors('Your basket is empty.');
         }
 
+        $total = $basketItems->sum(fn($item) => $item->watch->price * $item->quantity);
+
+        $order = Order::create([
+            "status" => "pending",
+            "user_id" => $user->id,
+            'shipping_address_id' => $shipping->id,
+            "billing_address_id" => $billing->id,
+            'card_id' => $card->id,
+            "total" => $total,
+        ]);
+
         // 6. Create an order for each watch in basket
         foreach ($basketItems as $item) {
             WatchOrder::create([
-                'user_id' => $user->id,
+                'order_id' => $order->id,
                 'watch_id' => $item->watch_id,
-                'shipping_address_id' => $shipping->id,
-                'card_id' => $card->id,
                 "size" => $item->size,
                 "quantity" => $item->quantity,
             ]);

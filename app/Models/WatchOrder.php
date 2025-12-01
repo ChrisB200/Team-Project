@@ -18,25 +18,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class WatchOrder extends Model
 {
-    protected $fillable = ["user_id", "watch_id", "shipping_address_id", "card_id", "status", "size", "quantity"];
+    protected $fillable = ["order_id", "watch_id", "size", "quantity"];
 
-    public function user()
+    public function order()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function watch()
     {
         return $this->belongsTo(Watch::class);
-    }
-
-    public function shipping_address()
-    {
-        return $this->belongsTo(Address::class, "shipping_address_id");
-    }
-
-    public function card()
-    {
-        return $this->belongsTo(Card::class);
     }
 }

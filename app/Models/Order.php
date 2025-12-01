@@ -24,5 +24,31 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
-    protected $fillable = ["status", "user_id", "total"];
+    protected $fillable = ["status", "user_id", "total", "shipping_address_id", "billing_address_id", "card_id"];
+
+    public function shipping_address()
+    {
+        return $this->belongsTo(Address::class, "shipping_address_id");
+    }
+
+
+    public function billing_address()
+    {
+        return $this->belongsTo(Address::class, "billing_address_id");
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function card()
+    {
+        return $this->belongsTo(Card::class);
+    }
+
+    public function watches()
+    {
+        return $this->hasMany(WatchOrder::class);
+    }
 }
