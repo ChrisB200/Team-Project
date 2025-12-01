@@ -25,6 +25,10 @@ Route::get('/about', function () {
 Route::get("watches/category/{slug}", [WatchController::class, "category"])
     ->name("watches.category");
 
+Route::middleware(['auth'])
+    ->get('/orders', [OrderController::class, 'index'])
+    ->name('orders.index');
+
 Route::resource("watches", WatchController::class);
 
 // View basket
@@ -78,5 +82,9 @@ Route::middleware(['auth', 'verified', 'admin'])
     ->group(function () {
         Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     });
+
+Route::post('/checkout', [CheckoutController::class, 'store'])
+    ->name('checkout.store')
+    ->middleware('auth');
 
 require __DIR__ . '/auth.php';

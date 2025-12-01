@@ -7,7 +7,7 @@
 @section('page')
   <h1 class="section-title">CHECKOUT</h1>
   <section class="content">
-    <form>
+    <form method="POST" action="{{ route('checkout.store') }}">
       @csrf
       <div class="form">
         <h2 class="form-title">Shipping Address</h2>
@@ -43,7 +43,7 @@
         <div class="form-span">
           <div class="form-row">
             <label for="card-expiry">Expiry Date <span class="asterisk">*</span></label>
-            <input id="card-expiry" type="text" name="card-expiry" required />
+            <input id="card-expiry" type="date" name="card-expiry" required />
           </div>
           <div class="form-row">
             <label for="card-cvv">CVV <span class="asterisk">*</span></label>
