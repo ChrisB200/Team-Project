@@ -1,3 +1,26 @@
+.basket {
+  position: sticky;
+  top: 230px;
+  left: 0;
+  padding: 1rem;
+  border: solid 1px var(--stroke);
+  box-sizing: border-box;
+  max-width: 500px;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+  gap: 2rem;
+  padding: 0 4rem;
+  box-sizing: border-box;
+}
+
 .watches {
   display: flex;
   flex-direction: column;
@@ -36,6 +59,8 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: var(--muted);
+  width: 100%;
+  max-width: 200px;
 }
 
 .watch-image {
@@ -88,7 +113,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border: 1px solid var(--stroke);
   box-sizing: border-box;
 }
 
@@ -103,4 +127,54 @@
 
 .accent-button {
   width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.form-title {
+  font-size: 18px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--stroke);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+}
+
+.form-span {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.credential-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.credential-bottom>p {
+  margin: 0;
+}
+
+.section-title {
+  margin-bottom: 4rem;
 }

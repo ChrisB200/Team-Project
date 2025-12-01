@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\SupplierController as AdminSupplierController;
 use App\Http\Controllers\Admin\WatchController as AdminWatchController;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WatchController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,10 @@ Route::patch('/basket/{item}', [BasketController::class, 'update'])
 Route::delete('/basket/{item}', [BasketController::class, 'destroy'])
     ->name('basket.destroy')
     ->middleware('auth');
+
+Route::get("/checkout", [CheckoutController::class, "index"])
+    ->name("checkout.index")
+    ->middleware("auth");
 
 // admin routes
 Route::middleware(['auth', 'admin'])

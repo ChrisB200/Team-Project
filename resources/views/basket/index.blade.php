@@ -42,7 +42,9 @@
         <p>Total</p>
         <p id="basket-total">£{{ number_format($total, 2) }}</p>
       </div>
-      <button class="accent-button">Checkout</button>
+      <a class="button-container" href="{{ route('checkout.index') }}">
+        <button class="accent-button">Checkout</button>
+      </a>
     </div>
   </section>
   <script>
@@ -58,7 +60,7 @@
       document.getElementById('basket-total').textContent = '£' + total.toFixed(2);
     }
 
-    // Auto-save quantity change
+    // auto-save quantity change
     document.querySelectorAll('.watch-quantity').forEach(input => {
       input.addEventListener('input', e => {
         updateTotal();

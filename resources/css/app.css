@@ -3,6 +3,7 @@
   --accent: #2d3132;
   --stroke: #dce0e0;
   --muted: #fbfbfb;
+  --error: red;
 
   --border-radius: 4px;
 }
@@ -249,4 +250,9 @@ section {
 
 .hidden {
   display: none;
+}
+
+.asterisk {
+  color: var(--error);
+  font-weight: bold;
 }
