@@ -23,6 +23,10 @@
         <a href="/profile">
           <x-icon name="user" class="icon" />
         </a>
+        <button id="theme-toggle" class="theme-toggle">
+          <x-icon name="moon" class="icon" id="moon-icon" />
+          <x-icon name="sun" class="icon hidden" id="sun-icon" />
+        </button>
       </div>
     </nav>
     <ul>
@@ -53,4 +57,27 @@
       </ul>
     </div>
   </footer>
+  <script>
+    const html = document.documentElement;
+    const moonIcon = document.getElementById("moon-icon");
+    const sunIcon = document.getElementById("sun-icon");
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+      html.classList.add("dark");
+      moonIcon.classList.add("hidden");
+      sunIcon.classList.remove("hidden");
+    }
+
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      const isDark = html.classList.toggle("dark");
+
+      // Toggle icons
+      moonIcon.classList.toggle("hidden", isDark);
+      sunIcon.classList.toggle("hidden", !isDark);
+
+      // Save preference
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
 @stop

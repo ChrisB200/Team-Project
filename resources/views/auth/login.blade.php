@@ -57,4 +57,15 @@
       <p>Don't have an account? <a class="bold" href="/register">Create One</a></p>
     </div>
   </form>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const html = document.documentElement;
+
+      if (localStorage.getItem("theme") === "dark") {
+        html.classList.add("dark");
+      } else {
+        html.classList.remove("dark");
+      }
+    });
+  </script>
 @endsection
