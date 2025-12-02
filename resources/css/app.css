@@ -101,7 +101,17 @@ nav>.middle {
   max-width: 600px;
 }
 
-nav>.middle>.search {
+.search-form {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.search-button {
+  all: unset;
+}
+
+.search {
   width: 100%;
 }
 
