@@ -8,11 +8,24 @@ use App\Models\Watch;
 
 class WatchController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $watches = Watch::latest()->paginate(12);
+        $query = Watch::with('brand', 'category');
+
+        if ($search = $request->input('q')) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%")
+                    ->orWhereHas('brand', function ($b) use ($search) {
+                        $b->where('name', 'like', "%{$search}%");
+                    });
+            });
+        }
+
+        $watches = $query->latest()->paginate(12)->withQueryString();
         $categoryName = "ALL";
-        return view('watches.index', compact('watches', 'categoryName'));
+
+        return view('watches.index', compact('watches', 'categoryName', 'search'));
     }
 
     public function show(Watch $watch)
@@ -20,23 +33,19 @@ class WatchController extends Controller
         return view('watches.show', compact('watch'));
     }
 
-    public function category(string $slug)
+    public function category(string $slug, Request $request)
     {
         $category = Category::where("name", $slug)->firstOrFail();
-        $watches = Watch::where("category_id", $category->id)->paginate(12);
+
+        $query = Watch::where("category_id", $category->id);
+
+        if ($search = $request->input('q')) {
+            $query->where('name', 'LIKE', "%{$search}%");
+        }
+
+        $watches = $query->paginate(12)->withQueryString();
         $categoryName = strtoupper($category->name);
 
-        return view("watches.index", compact("watches", "categoryName"));
-    }
-
-    public function search(Request $request)
-    {
-        $query = trim($request->input('query', ''));
-
-        $watches = Watch::where('name', 'LIKE', "%{$query}%")
-            ->orWhere('description', 'LIKE', "%{$query}%")
-            ->get();
-
-        return view('search_results', compact('watches', 'query'));
+        return view("watches.index", compact("watches", "categoryName", "search"));
     }
 }

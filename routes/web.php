@@ -60,8 +60,8 @@ Route::middleware(['auth'])
     ->group(function () {
         Route::get('/', [BasketController::class, 'index'])->name('index');
         Route::post("/{watch}", [BasketController::class, "store"])->name("store");
-        Route::patch("/{watch}", [BasketController::class, "update"])->name("update");
-        Route::delete("/{watch}", [BasketController::class, "destroy"])->name("destroy");
+        Route::patch("/{item}", [BasketController::class, "update"])->name("update");
+        Route::delete("/{item}", [BasketController::class, "destroy"])->name("destroy");
     });
 
 

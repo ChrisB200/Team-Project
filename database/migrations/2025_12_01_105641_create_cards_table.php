@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->integer("user_id")->unsigned();
-            $table->integer("address_id")->unsigned();
             $table->text("name");
             $table->text("number");
             $table->date("expiry");
@@ -25,13 +24,6 @@ return new class extends Migration
                 ->foreign("user_id")
                 ->references("id")
                 ->on("users")
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
-
-            $table
-                ->foreign("address_id")
-                ->references("id")
-                ->on("addresses")
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
         });
