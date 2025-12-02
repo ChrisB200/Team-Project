@@ -12,15 +12,17 @@ class BrandSeeder extends Seeder
         $brands = [
             'Accurist',
             'Accutime',
-            'adidas',
+            'Adidas',
             'All saints',
             'All we are',
             'Ambush',
             'Anne Klein',
             'Armani',
             'Aston Martin',
+            'Audemars Piguet',
             'August Berg',
             'Avi-8',
+            
 
             'Balenciaga',
             'Bauhaus',
@@ -89,8 +91,10 @@ class BrandSeeder extends Seeder
             'Heron preston',
             'Hirsch',
             'Huawei',
+            'Hublot',
             'Hugoboss',
             'Hype',
+            
 
             'Ingersoll',
             'Ingersoll 1892',
@@ -166,6 +170,7 @@ class BrandSeeder extends Seeder
             'Reflex',
             'Reflexactive',
             'Roamer',
+            'Rolex',
             'Rotary',
 
             'Salvatore Ferragamo',
@@ -197,6 +202,7 @@ class BrandSeeder extends Seeder
             'Timex',
             'Tissot',
             'Tommy Hilfiger',
+            'Tudor',
             'Tw Steel',
             'TWOJEYS',
 
