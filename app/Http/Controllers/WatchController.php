@@ -8,9 +8,6 @@ use App\Models\Watch;
 
 class WatchController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $watches = Watch::latest()->paginate(12);
@@ -18,9 +15,6 @@ class WatchController extends Controller
         return view('watches.index', compact('watches', 'categoryName'));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Watch $watch)
     {
         return view('watches.show', compact('watch'));
@@ -31,6 +25,18 @@ class WatchController extends Controller
         $category = Category::where("name", $slug)->firstOrFail();
         $watches = Watch::where("category_id", $category->id)->paginate(12);
         $categoryName = strtoupper($category->name);
+
         return view("watches.index", compact("watches", "categoryName"));
+    }
+
+    public function search(Request $request)
+    {
+        $query = trim($request->input('query', ''));
+
+        $watches = Watch::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('description', 'LIKE', "%{$query}%")
+            ->get();
+
+        return view('search_results', compact('watches', 'query'));
     }
 }

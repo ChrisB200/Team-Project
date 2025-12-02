@@ -11,10 +11,19 @@
         <img class="logo" src="{{ asset('logo.svg') }}" alt="LOGO" />
       </a>
       <div class="middle">
-        <input class="search" type="search" placeholder="What are you looking for?" />
-        <div>
-          <x-icon name="search" class="icon" />
-        </div>
+        <form action="{{ route('watches.search') }}" method="GET" class="search-form">
+              <input 
+                  class="search" 
+                  type="search" 
+                  name="query" 
+                  placeholder="What are you looking for?" 
+              />
+              <button type="submit" class="search-button">
+                  <x-icon name="search" class="icon" />
+              </button>
+          </form>
+      
+        
       </div>
       <div class="right">
         <a href="{{ route('basket.index') }}">
