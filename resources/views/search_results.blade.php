@@ -1,8 +1,5 @@
-@extends('layouts.user')
 
 @section('head')
-  @vite('resources/css/home.css')
-@stop
 
 <h2>Search Results for "{{ $query }}"</h2>
 
