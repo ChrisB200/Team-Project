@@ -8,7 +8,7 @@
   <header>
     <nav>
       <a href="/" class="left">
-        <img class="logo" src="{{ asset('logo.svg') }}" alt="LOGO" />
+        <img class="logo" src="{{ asset('logo.png') }}" alt="LOGO" />
       </a>
       <div class="middle">
         <form class="search-form" action="{{ route('watches.index') }}" method="GET" class="search-form">

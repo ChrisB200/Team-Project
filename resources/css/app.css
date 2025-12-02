@@ -183,6 +183,13 @@ footer>div>ul {
   padding: 4rem;
 }
 
+.logo-container img {
+  height: 2rem;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .credential-form {
   position: absolute;
   top: 50%;
