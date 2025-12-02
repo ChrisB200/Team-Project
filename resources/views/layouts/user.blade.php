@@ -11,7 +11,7 @@
         <img class="logo" src="{{ asset('logo.svg') }}" alt="LOGO" />
       </a>
       <div class="middle">
-        <form class="search-form" action="{{ route('watches.search') }}" method="GET" class="search-form">
+        <form class="search-form" action="{{ route('watches.index') }}" method="GET" class="search-form">
           <input class="search" type="search" name="query" placeholder="What are you looking for?" />
           <button type="submit" class="search-button">
             <x-icon name="search" class="icon" />
