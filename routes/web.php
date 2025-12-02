@@ -96,4 +96,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+// routes for to search for watches
+Route::get('/search', [WatchController::class, 'search'])->name('watches.search');
+
+
 require __DIR__ . '/auth.php';
