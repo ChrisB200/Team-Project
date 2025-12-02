@@ -5,5 +5,4 @@
 @stop
 
 @section('page')
-
 @stop
