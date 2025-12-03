@@ -7,7 +7,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchController;
 use Illuminate\Support\Facades\Route;
 
@@ -93,12 +93,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// profile routes
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// user setting routes
+Route::middleware(['auth'])
+    ->prefix('account')
+    ->name('account.')
+    ->group(function () {
+        Route::get("/profile", [UserController::class, "edit"])->name("profile.edit");
+        Route::patch('/profile', [UserController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [UserController::class, 'destroy'])->name('profile.destroy');
+    });
+
 
 
 // routes for to search for watches

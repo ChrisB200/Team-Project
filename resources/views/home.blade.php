@@ -58,7 +58,8 @@
   <section class="reviews">
     <h2 class="section-title">REVIEWS</h2>
     <p>John</p>
-    <p>I absolutely love my Crown & Dial Watch – the craftsmanship, quality, and timeless design are everything I hoped for.</p>
+    <p>I absolutely love my Crown & Dial Watch – the craftsmanship, quality, and timeless design are everything I hoped
+      for.</p>
     <p>It’s truly a watch that stands out and is worth the investment.</p>
 
     <p>Sarah</p>

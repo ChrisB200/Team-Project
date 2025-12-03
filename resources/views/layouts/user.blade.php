@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('html-head')
-  @yield('head')
+  @stack('head')
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
         <a href="{{ route('basket.index') }}">
           <x-icon name="shopping-cart" class="icon" />
         </a>
-        <a href="/profile">
+        <a href="{{ route('account.profile.edit') }}">
           <x-icon name="user" class="icon" />
         </a>
         <div class="accessibility">
@@ -83,9 +83,12 @@
       </li>
     </ul>
   </header>
-  <main>
-    @yield('page')
-  </main>
+  <div class="page">
+    @yield('sidebar')
+    <main>
+      @yield('page')
+    </main>
+  </div>
   <footer>
     <div>
       <x-logo class="left" />
