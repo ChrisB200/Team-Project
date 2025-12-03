@@ -9,10 +9,12 @@
     <h2 class="section-title">
       CROWN & DIAL
     </h2>
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit
-      urna. Pellentesque
-      sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis
-      imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu..
+    <p class="description">
+      Crown and Dial is dedicated to offering high-quality, authentic timepieces that blend craftsmanship, style, and
+      reliability. We curate watches for every lifestyle, delivering a seamless shopping experience built on trust and
+      exceptional service. Our mission is to help customers express their identity through timepieces that endure and
+      inspire.
+
     </p>
     <a href="{{ route('about') }}">
       <button class="accent-button">Find Out More</button>
