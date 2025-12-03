@@ -99,6 +99,8 @@ Route::middleware(['auth'])
     ->name('account.')
     ->group(function () {
         Route::get("/profile", [UserController::class, "edit"])->name("profile.edit");
+        Route::get('/security', [UserController::class, 'security'])->name('profile.security');
+        Route::get('/delete', [UserController::class, 'delete'])->name('profile.delete');
         Route::patch('/profile', [UserController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [UserController::class, 'destroy'])->name('profile.destroy');
     });

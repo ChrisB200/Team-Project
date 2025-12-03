@@ -1,0 +1,28 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-form {
+  width: 100%;
+  max-width: 600px;
+}
+
+.credential-title {
+  text-align: left;
+}
+
+.credential-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.accent-button {
+  width: 100%;
+}
+
+hr {
+  border: 1px solid var(--stroke);
+}

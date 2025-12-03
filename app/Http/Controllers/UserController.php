@@ -58,6 +58,21 @@ class UserController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function security(Request $request)
+    {
+        return view('account.profile.security', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    public function delete(Request $request)
+    {
+        return view('account.profile.delete', [
+            'user' => $request->user(),
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      */

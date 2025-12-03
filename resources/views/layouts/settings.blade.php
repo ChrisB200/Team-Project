@@ -11,8 +11,8 @@
       <h3 class="sidebar-title">Account Settings</h3>
       <li class="sidebar-anchors">
         <a class="sidebar-anchor" href="{{ route('account.profile.edit') }}">Profile</a>
-        <a class="sidebar-anchor">Security</a>
-        <a class="sidebar-anchor">Delete</a>
+        <a class="sidebar-anchor" href="{{ route('account.profile.security') }}">Security</a>
+        <a class="sidebar-anchor" href="{{ route('account.profile.delete') }}">Delete</a>
       </li>
     </ul>
     <ul class="sidebar-list">
