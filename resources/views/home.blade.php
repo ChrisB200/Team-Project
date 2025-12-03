@@ -60,5 +60,10 @@
     <p>John</p>
     <p>I absolutely love my Crown & Dial Watch – the craftsmanship, quality, and timeless design are everything I hoped for.</p>
     <p>It’s truly a watch that stands out and is worth the investment.</p>
+
+    <p>Sarah</p>
+    <p>This is my second purchase from Crown & Dial.</p>
+    <p>These watches are the perfect gift ideas.</p>
+    <p>Will be coming back.</p>
   </section>
 @stop
