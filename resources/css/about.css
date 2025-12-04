@@ -1,0 +1,17 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.map {
+  width: 100%;
+}
