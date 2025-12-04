@@ -7,7 +7,7 @@
 @section('page')
 
   <div class="orders-list">
-
+    <h2>Past Orders</h2>
     <div class="order-row">
       <div class="order-left">
         <div class="order-index">1.</div>
@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <button class="order-button">
+      <button class="accent-button">
         BUY AGAIN
       </button>
     </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <button class="order-button">
+      <button class="accent-button">
         BUY AGAIN
       </button>
     </div>
@@ -51,7 +51,7 @@
         </div>
       </div>
 
-      <button class="order-button">
+      <button class="accent-button">
         BUY AGAIN
       </button>
     </div>
@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      <button class="order-button">
+      <button class="accent-button">
         BUY AGAIN
       </button>
     </div>
