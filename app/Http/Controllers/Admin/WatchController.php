@@ -17,7 +17,7 @@ class WatchController extends Controller
     public function index()
     {
         $watches = Watch::latest()->paginate(12);
-        return view('admin.watches.index', compact('watches'));
+        return view('admin.watches.create', compact('watches'));
     }
 
     /**

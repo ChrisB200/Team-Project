@@ -65,6 +65,7 @@ Route::middleware(['auth'])
     ->name('checkout.')
     ->group(function () {
         Route::get("/", [CheckoutController::class, "index"])->name("index");
+        Route::get("/{order}", [CheckoutController::class, "show"])->name("show");
         Route::post("/", [CheckoutController::class, "store"])->name("store");
     });
 

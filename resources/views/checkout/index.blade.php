@@ -43,7 +43,7 @@
         <div class="form-span">
           <div class="form-row">
             <label for="card-expiry">Expiry Date <span class="asterisk">*</span></label>
-            <input id="card-expiry" type="date" name="card-expiry" required />
+            <input id="card-expiry" type="month" name="card-expiry" required />
           </div>
           <div class="form-row">
             <label for="card-cvv">CVV <span class="asterisk">*</span></label>

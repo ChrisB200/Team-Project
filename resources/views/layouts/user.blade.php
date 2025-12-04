@@ -41,6 +41,10 @@
           <x-logo class="mobile-logo-container" />
           <x-icon name="menu" class="menu icon mobile" id="close-menu-icon" />
         </div>
+
+        <form class="search-form" action="{{ route('watches.index') }}" method="GET" class="search-form">
+          <input class="search" type="search" name="q" placeholder="What are you looking for?" />
+        </form>
         <ul class="mobile-anchors">
           <li>
             <a href="{{ route('home') }}">HOME</a>

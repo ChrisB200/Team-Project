@@ -123,15 +123,17 @@ class CheckoutController extends Controller
         // 7. Clear basket
         BasketItem::where('user_id', $user->id)->delete();
 
-        return redirect()->route('orders.index')->with('success', 'Order placed successfully!');
+        return redirect()->route('checkout.show', compact("order"))->with('success', 'Order placed successfully!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Order $order)
     {
-        //
+        $order->load("watches.watch");
+
+        return view("checkout.show", compact('order'));
     }
 
     /**
