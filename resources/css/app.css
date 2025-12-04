@@ -39,8 +39,18 @@ li {
   list-style: none;
 }
 
+.page {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  align-items: stretch;
+}
+
 main {
-  padding: 12rem 6rem;
+  padding: 12rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1000px;
 }
 
 p,
@@ -83,6 +93,23 @@ header {
   background-color: var(--primary);
 }
 
+.light-logo {
+  display: block;
+}
+
+.dark-logo {
+  display: none;
+}
+
+/* When dark mode is active */
+html.dark .light-logo {
+  display: none;
+}
+
+html.dark .dark-logo {
+  display: block;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -101,12 +128,25 @@ nav>.middle {
   max-width: 600px;
 }
 
-nav>.middle>.search {
+.search-form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.search-button {
+  all: unset;
+}
+
+.search {
   width: 100%;
 }
 
 nav>.right {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -141,7 +181,7 @@ a:hover {
 footer {
   display: flex;
   justify-content: center;
-  margin-bottom: 10rem;
+  background-color: var(--primary);
 }
 
 footer>div {
@@ -151,7 +191,6 @@ footer>div {
   border: 1px solid var(--stroke);
   padding: 3rem 4rem;
   width: 100%;
-  max-width: 1000px;
   gap: 1.5rem;
 }
 
@@ -169,7 +208,9 @@ footer>div>ul {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 4rem;
+  width: 100px;
+  padding: 1rem;
+  height: 100px;
 }
 
 .credential-form {
@@ -326,4 +367,42 @@ section {
   .font-sizes {
     margin-top: 1rem;
   }
+}
+
+.left,
+.mobile-logo-container {
+  width: 100px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.accessibility {
+  position: relative;
+}
+
+.accessibility-options {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  border: 1px solid var(--stroke);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+}
+
+.accessibility-options.hidden {
+  display: none;
+}
+
+.menu-burger-button {
+  padding: 0;
+  height: fit-content;
+  width: fit-content;
+  border: none;
 }

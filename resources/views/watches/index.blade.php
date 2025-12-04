@@ -1,8 +1,8 @@
 @extends('layouts.user')
 
-@section('head')
+@push('head')
   @vite('resources/css/watches/index.css')
-@stop
+@endpush
 
 @section('page')
   <section class="hero">

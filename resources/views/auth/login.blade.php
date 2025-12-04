@@ -7,9 +7,7 @@
     </div>
   @endif
 
-  <a href="/" class="logo-container">
-    <img class="logo" src="{{ asset('logo.svg') }}" alt="LOGO" />
-  </a>
+  <x-logo class="logo-container" />
 
   <form class="credential-form" method="POST" action="{{ route('login') }}">
     @csrf

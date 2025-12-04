@@ -1,18 +1,20 @@
 @extends('layouts.user')
 
-@section('head')
+@push('head')
   @vite('resources/css/home.css')
-@stop
+@endpush
 
 @section('page')
   <section class="hero">
     <h2 class="section-title">
       CROWN & DIAL
     </h2>
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit
-      urna. Pellentesque
-      sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis
-      imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu..
+    <p class="description">
+      Crown and Dial is dedicated to offering high-quality, authentic timepieces that blend craftsmanship, style, and
+      reliability. We curate watches for every lifestyle, delivering a seamless shopping experience built on trust and
+      exceptional service. Our mission is to help customers express their identity through timepieces that endure and
+      inspire.
+
     </p>
     <a href="{{ route('about') }}">
       <button class="accent-button">Find Out More</button>
@@ -55,6 +57,14 @@
   </section>
   <section class="reviews">
     <h2 class="section-title">REVIEWS</h2>
-    <p>TO BE ADDED</p>
+    <p>John</p>
+    <p>I absolutely love my Crown & Dial Watch – the craftsmanship, quality, and timeless design are everything I hoped
+      for.</p>
+    <p>It’s truly a watch that stands out and is worth the investment.</p>
+
+    <p>Sarah</p>
+    <p>This is my second purchase from Crown & Dial.</p>
+    <p>These watches are the perfect gift ideas.</p>
+    <p>Will be coming back.</p>
   </section>
 @stop
