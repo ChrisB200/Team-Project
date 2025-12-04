@@ -9,23 +9,20 @@
     <h2 class="section-title">
       OUR CATALOG
     </h2>
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit
-      urna. Pellentesque
-      sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis
-      imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu..
+    <p class="description">
+      Discover our curated collection of exceptional timepieces, crafted to suit every style and moment. From refined
+      classics to bold modern designs, each watch reflects precision, quality, and character. Explore our catalog to find
+      the perfect piece that elevates your look and stands the test of time.
     </p>
   </section>
   <section class="watch-section">
-    <h2 class="section-title">
-      {{ $categoryName }} WATCHES
-    </h2>
-    <div>
-      <select name="filter">
-        <option>Filter</option>
-      </select>
-      <select name="sort">
-        <option>Sort</option>
-      </select>
+    <div class="watch-header">
+      <h2 class="section-title">
+        {{ $categoryName }} WATCHES
+      </h2>
+      @if (count($watches) === 0)
+        <p>There are currently no watches</p>
+      @endif
     </div>
     <div class="watches">
       @foreach ($watches as $watch)
