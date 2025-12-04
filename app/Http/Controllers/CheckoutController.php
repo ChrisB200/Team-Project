@@ -27,6 +27,10 @@ class CheckoutController extends Controller
             return $item->watch->price * $item->quantity;
         });
 
+        if (count($basket) === 0) {
+            return redirect()->route('basket.index')->with('error', 'There are no items in your basket');
+        }
+
         return view("checkout.index", compact("basket", "total"));
     }
 
