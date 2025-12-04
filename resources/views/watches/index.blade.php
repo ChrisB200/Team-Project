@@ -20,11 +20,14 @@
       <h2 class="section-title">
         {{ $categoryName }} WATCHES
       </h2>
+      @if ($search)
+        <p>Searching for results: <strong>{{ $search }}</strong></p>
+      @endif
       @if (count($watches) === 0)
-        <p>There are currently no watches</p>
+        <p>Sorry, we could not find any watches matching this criteria</p>
       @endif
     </div>
-    <div class="watches">
+    <div class="watches" id="watches">
       @foreach ($watches as $watch)
         <a class="watch" href="{{ route('watches.show', compact('watch')) }}">
           <div class="watch-image-container">

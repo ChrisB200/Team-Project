@@ -35,13 +35,6 @@ Route::middleware(["auth"])
         Route::get("/category/{slug}", [WatchController::class, "category"])->name("category");
     });
 
-// order routes
-Route::middleware(['auth'])
-    ->prefix("orders")
-    ->name("orders.")
-    ->group(function () {
-        Route::get("/", [OrderController::class, "index"])->name("index");
-    });
 
 // contact routes
 Route::middleware(['auth'])
@@ -105,6 +98,7 @@ Route::middleware(['auth'])
         Route::patch('/profile', [UserController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [UserController::class, 'destroy'])->name('profile.destroy');
         Route::get("/messages", [MessageController::class, 'index'])->name('messages.index');
+        Route::get("/orders", [OrderController::class, 'index'])->name('orders.index');
     });
 
 

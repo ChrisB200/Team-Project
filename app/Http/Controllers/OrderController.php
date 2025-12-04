@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -9,9 +10,16 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view("orders.index");
+        $user = $request->user();
+
+        $orders = Order::where("user_id", $user->id)
+            ->with("watches")
+            ->latest()
+            ->get();
+
+        return view("account.orders.index", compact("orders"));
     }
 
     /**

@@ -18,7 +18,7 @@
     <ul class="sidebar-list">
       <h3 class="sidebar-title">Orders</h3>
       <li class="sidebar-anchors">
-        <a class="sidebar-anchor">Past Orders</a>
+        <a class="sidebar-anchor" href="{{ route('account.orders.index') }}">Past Orders</a>
       </li>
     </ul>
     <ul class="sidebar-list">
