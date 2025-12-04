@@ -24,7 +24,7 @@
     <ul class="sidebar-list">
       <h3 class="sidebar-title">Messages</h3>
       <li class="sidebar-anchors">
-        <a class="sidebar-anchor">Past Messages</a>
+        <a class="sidebar-anchor" href="{{ route('account.messages.index') }}">Past Messages</a>
       </li>
     </ul>
   </aside>

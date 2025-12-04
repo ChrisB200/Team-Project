@@ -189,6 +189,7 @@ footer>div {
   justify-content: space-between;
   align-items: center;
   border: 1px solid var(--stroke);
+  border-bottom: none;
   padding: 3rem 4rem;
   width: 100%;
   gap: 1.5rem;

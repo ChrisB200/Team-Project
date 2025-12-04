@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\WatchController as AdminWatchController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchController;
@@ -93,7 +94,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// user setting routes
+// user account routes
 Route::middleware(['auth'])
     ->prefix('account')
     ->name('account.')
@@ -103,6 +104,7 @@ Route::middleware(['auth'])
         Route::get('/delete', [UserController::class, 'delete'])->name('profile.delete');
         Route::patch('/profile', [UserController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [UserController::class, 'destroy'])->name('profile.destroy');
+        Route::get("/messages", [MessageController::class, 'index'])->name('messages.index');
     });
 
 
