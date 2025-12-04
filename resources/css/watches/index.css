@@ -60,3 +60,9 @@
 .watch-price {
   font-weight: bold;
 }
+
+.watch-header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
