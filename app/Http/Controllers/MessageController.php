@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view("contact.index");
+        $user = $request->user();
+
+        $messages = Message::where("user_id", $user->id)
+            ->latest()
+            ->get();
+
+        return view("account.messages.index", compact("messages"));
     }
 
     /**
@@ -20,7 +26,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view("contact.create");
+        //
     }
 
     /**
@@ -28,16 +34,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            "subject" => "required|string",
-            "content" => "required|string",
-        ]);
-
-        $validated['user_id'] = $request->user()->id;
-
-        Message::create($validated);
-
-        return redirect()->route("account.messages.index")->with("success", "Message sent successfully");
+        //
     }
 
     /**
