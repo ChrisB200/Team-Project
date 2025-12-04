@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\SupplierController as AdminSupplierController;
 use App\Http\Controllers\Admin\WatchController as AdminWatchController;
+use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
@@ -79,6 +80,9 @@ Route::middleware(['auth', 'admin'])
 
         // suppliers
         Route::resource("suppliers", AdminSupplierController::class);
+
+        // brands
+        Route::resource("brands", AdminBrandController::class);
 
         // dashboard
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
