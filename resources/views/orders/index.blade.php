@@ -2,9 +2,9 @@
 
 @section('head')
   @vite('resources/css/orders/index.css')
-@endsection
+@stop
 
-@section('content')
+@section('page')
 
 <div class="orders-list" style="padding: 20px 40px 30px;">
 
