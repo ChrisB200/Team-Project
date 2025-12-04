@@ -1,9 +1,12 @@
 main {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8rem;
 }
 
-.edit-form {
+.edit-form,
+.logout-form {
   width: 100%;
   max-width: 600px;
 }
@@ -25,4 +28,8 @@ main {
 
 hr {
   border: 1px solid var(--stroke);
+}
+
+.forms {
+  width: 100%;
 }

@@ -25,4 +25,17 @@
       <button class="accent-button">Submit</button>
     </div>
   </form>
+  <form class="logout-form" method="post" action="{{ route('logout') }}">
+    @csrf
+    <div>
+      <h2 class="credential-title">Log Out</h2>
+      <br />
+      <hr />
+    </div>
+    <div class="credential-rows">
+      <button class="accent-button">
+        Log Out
+      </button>
+    </div>
+  </form>
 @stop
