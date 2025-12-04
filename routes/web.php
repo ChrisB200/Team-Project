@@ -27,7 +27,7 @@ Route::get('/about', function () {
 
 // watch routes
 Route::resource("watches", WatchController::class);
-Route::middleware(["auth"])
+Route::middleware([])
     ->prefix("watches")
     ->name("watches.")
     ->group(function () {
