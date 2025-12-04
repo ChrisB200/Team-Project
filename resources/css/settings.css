@@ -1,8 +1,8 @@
 .page {
   display: flex;
+  justify-content: flex-start;
   width: 100vw;
   height: 100%;
-  align-items: stretch;
 }
 
 .sidebar {
@@ -19,6 +19,10 @@
   border-right: 1px solid var(--stroke);
   overflow-y: none;
   padding-top: 3rem;
+}
+
+main {
+  padding-top: 4rem;
 }
 
 .sidebar-list {

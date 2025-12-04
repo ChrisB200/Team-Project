@@ -39,10 +39,18 @@ li {
   list-style: none;
 }
 
+.page {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  align-items: stretch;
+}
+
 main {
-  padding: 12rem 6rem;
+  padding: 12rem 1rem;
   width: 100%;
   box-sizing: border-box;
+  max-width: 1000px;
 }
 
 p,

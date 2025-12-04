@@ -1,8 +1,8 @@
 @extends('layouts.user')
 
-@section('head')
+@push('head')
   @vite('resources/css/checkout/index.css')
-@stop
+@endpush
 
 @section('page')
   <h1 class="section-title">CHECKOUT</h1>

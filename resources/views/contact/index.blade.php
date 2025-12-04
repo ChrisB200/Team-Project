@@ -1,8 +1,8 @@
 @extends('layouts.user')
 
-@section('head')
+@push('head')
   @vite('resources/css/contact/index.css')
-@stop
+@endpush
 
 @section('page')
   <p>INDEX CONTACT PAGE</p>

@@ -94,9 +94,9 @@
       <x-logo class="left" />
       <p>Copyright 2025 © for Crown and Dial. All Rights Reserved</p>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="{{ route('home') }}">Home</a></li>
+        <li><a href="{{ route('about') }}">About Us</a></li>
+        <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
       </ul>
     </div>
   </footer>
