@@ -28,8 +28,5 @@ php artisan migrate --force
 php artisan config:cache
 php artisan route:cache
 
-php artisan db:seed
-php artisan storage:link
-
 # Run the default command
 exec "$@"
