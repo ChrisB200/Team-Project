@@ -62,7 +62,7 @@
             <a href="{{ route('basket.index') }}">BASKET</a>
           </li>
           <li>
-            <a href="{{ route('account.profile.index') }}">PROFILE</a>
+            <a href="{{ route('account.profile.edit') }}">PROFILE</a>
           </li>
         </ul>
         <div class="mobile-accessibility">
