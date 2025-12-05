@@ -6,54 +6,40 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer("user_id")->unsigned();
-            $table->integer("shipping_address_id")->unsigned();
-            $table->integer("billing_address_id")->unsigned();
-            $table->integer("card_id")->unsigned();
-            $table->enum("status", ["pending", "paid", "shipped", "delivered", "cancelled"]);
-            $table->decimal("total");
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('shipping_address_id');
+            $table->unsignedBigInteger('billing_address_id');
+            $table->unsignedBigInteger('card_id');
+            $table->enum('status', ['pending', 'paid', 'shipped', 'delivered', 'cancelled']);
+            $table->decimal('total', 10, 2);
             $table->timestamps();
 
-            $table
-                ->foreign("user_id")
-                ->references("id")
-                ->on("users")
+            $table->foreign('user_id')
+                ->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->noActionOnDelete();
 
-            $table
-                ->foreign("shipping_address_id")
-                ->references("id")
-                ->on("addresses")
+            $table->foreign('shipping_address_id')
+                ->references('id')->on('addresses')
                 ->cascadeOnUpdate()
                 ->noActionOnDelete();
 
-            $table
-                ->foreign("billing_address_id")
-                ->references("id")
-                ->on("addresses")
+            $table->foreign('billing_address_id')
+                ->references('id')->on('addresses')
                 ->cascadeOnUpdate()
                 ->noActionOnDelete();
 
-            $table
-                ->foreign("card_id")
-                ->references("id")
-                ->on("cards")
+            $table->foreign('card_id')
+                ->references('id')->on('cards')
                 ->cascadeOnUpdate()
                 ->noActionOnDelete();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('orders');

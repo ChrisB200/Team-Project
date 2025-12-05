@@ -3,35 +3,33 @@ import laravel from "laravel-vite-plugin";
 import fs from "fs";
 import path from "path";
 
-// Recursively scan directories for .css files
-function loadCssFiles(dir = "resources/css") {
-    const directoryPath = path.resolve(__dirname, dir);
-    let cssFiles = [];
+function getCssInputs(dir) {
+    const root = path.resolve(__dirname);
+    const target = path.join(root, dir);
+    const result = [];
 
-    const items = fs.readdirSync(directoryPath);
+    function scan(folder) {
+        for (const entry of fs.readdirSync(folder)) {
+            const full = path.join(folder, entry);
+            const stat = fs.lstatSync(full);
 
-    for (const item of items) {
-        const fullPath = path.join(directoryPath, item);
-        const relativePath = path.join(dir, item);
-
-        if (fs.statSync(fullPath).isDirectory()) {
-            // Recursively scan subfolders
-            cssFiles = cssFiles.concat(loadCssFiles(relativePath));
-        } else if (item.endsWith(".css")) {
-            cssFiles.push(relativePath);
+            if (stat.isDirectory()) {
+                scan(full);
+            } else if (full.endsWith(".css")) {
+                // Convert absolute → relative path
+                result.push(full.replace(root + "/", ""));
+            }
         }
     }
 
-    return cssFiles;
+    scan(target);
+    return result;
 }
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: [
-                ...loadCssFiles(), // All CSS files recursively
-                "resources/js/app.js", // Your JS entry file
-            ],
+            input: [...getCssInputs("resources/css"), "resources/js/app.js"],
             refresh: true,
         }),
     ],

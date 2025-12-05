@@ -6,52 +6,35 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('watches', function (Blueprint $table) {
             $table->id();
-            $table->integer("brand_id")->unsigned();
-            $table->integer("supplier_id")->unsigned();
-            $table->integer("category_id")->unsigned();
 
-            // TODO: NEED TO FIND WATCH CATEGORIES $table->enum();
-
-            $table->decimal("price");
-            $table->text("name");
-            $table->text("description");
-            $table->text("image_path");
-            $table->timestamps();
-
-            $table
-                ->foreign("brand_id")
-                ->references("id")
-                ->on("brands")
+            $table->foreignId('brand_id')
+                ->constrained('brands')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
 
-            $table
-                ->foreign("supplier_id")
-                ->references("id")
-                ->on("suppliers")
+            $table->foreignId('supplier_id')
+                ->nullable()
+                ->constrained('suppliers')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
 
-
-            $table
-                ->foreign("category_id")
-                ->references("id")
-                ->on("categories")
+            $table->foreignId('category_id')
+                ->constrained('categories')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+
+            $table->decimal('price', 8, 2);
+            $table->string('name');
+            $table->text('description');
+            $table->string('image_path');
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('watches');

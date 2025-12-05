@@ -20,7 +20,7 @@ Artisan::command('project:setup', function () {
     // create .env if missing
     if (! file_exists(base_path('.env'))) {
         $this->info("Creating .env file from .env.dev.example...");
-        copy(base_path('.env.dev.example'), base_path('.env'));
+        copy(base_path('.env.example'), base_path('.env'));
     } else {
         $this->line(".env file already exists.");
     }
