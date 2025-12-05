@@ -36,7 +36,7 @@
           <div class="watch-content">
             <p class="watch-brand">{{ strtoupper($watch->brand->name) }}</p>
             <p class="watch-name">{{ $watch->name }}</p>
-            <p class="watch-price">£{{ $watch->price }}</p>
+            <p class="watch-price">£{{ number_format($watch->price) }}</p>
           </div>
         </a>
       @endforeach

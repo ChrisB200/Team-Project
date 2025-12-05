@@ -100,7 +100,7 @@
                   value="{{ $item->quantity }}" data-id="{{ $item->id }}" />
               </div>
 
-              <p class="watch-price">£{{ $item->watch->price }}</p>
+              <p class="watch-price">£{{ number_format($item->watch->price) }}</p>
             </div>
 
           </div>

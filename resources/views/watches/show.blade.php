@@ -16,7 +16,7 @@
           <div class="watch-important">
             <h1 class="watch-brand">{{ strtoupper($watch->brand->name) }}</h1>
             <p class="watch-name">{{ $watch->name }}</p>
-            <p class="watch-price">£{{ $watch->price }}</p>
+            <p class="watch-price">£{{ number_format($watch->price) }}</p>
           </div>
           <div class="watch-sizes">
             <p>Size</p>
