@@ -30,14 +30,7 @@ Artisan::command('project:setup', function () {
     shell_exec("composer install --no-interaction --prefer-dist");
 
     // generate APP_KEY if missing
-    $env = file_get_contents(base_path('.env'));
-    if (! str_contains($env, "APP_KEY=base64:")) {
-        $this->info("\nGenerating new Laravel app key...");
-        Artisan::call('key:generate');
-        $this->info(Artisan::output());
-    } else {
-        $this->line("\nAPP_KEY already exists, skipping generation.");
-    }
+    Artisan::call('key:generate');
 
     // ensure database.sqlite exists
     $sqlitePath = database_path('database.sqlite');
@@ -52,7 +45,7 @@ Artisan::command('project:setup', function () {
 
     // run migrations
     $this->info("\nRunning database migrations...");
-    Artisan::call('migrate', ['--force' => true]);
+    Artisan::call('migrate:fresh', ['--force' => true, "--seed" => true]);
     $this->info(Artisan::output());
 
     // symbolic link the storage directory
