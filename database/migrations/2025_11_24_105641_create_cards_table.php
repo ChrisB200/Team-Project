@@ -13,7 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('number');
-            $table->date('expiry');
+            $table->string('expiry');
             $table->string('cvv');
             $table->timestamps();
 
